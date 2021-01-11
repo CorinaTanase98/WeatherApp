@@ -8,12 +8,17 @@ import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.stage.Window;
 import ro.mta.se.lab.model.City;
+import ro.mta.se.lab.model.FileWorker;
+import ro.mta.se.lab.model.JsonWorker;
 import ro.mta.se.lab.model.Weather;
 
 import javax.imageio.ImageIO;
@@ -29,48 +34,17 @@ import java.util.Map;
 
 public class WeatherController {
 
+
     private HashMap<String, ArrayList<City>> countriesMap = new HashMap<String, ArrayList<City>>();
     private String filename;
-
-    public Weather getCurrentWeather() {
-        return currentWeather;
-    }
-
-    public void setCurrentWeather(Weather currentWeather) throws IOException {
-        this.currentWeather = currentWeather;
-    }
-
-    private void updateInfo() throws IOException {
-        currentCityLabel.setText(currentWeather.getCurrentCity());
-        currentTempLabel.setText(currentWeather.getTemp()+"°C");
-        minLabel.setText("L: "+currentWeather.getMinTemp()+"°C");
-        maxLabel.setText("H: "+currentWeather.getMaxTemp()+"°C");
-        weatherLabel.setText(currentWeather.getDesc());
-        feelslikeLabel.setText(currentWeather.getFeelsLike()+"°C");
-        humLabel.setText(currentWeather.getHumidity() +"%");
-        pressureLabel.setText(currentWeather.getPression()+" hPa");
-        windLabel.setText(currentWeather.getWind()+" km/hr");
-        BufferedImage buffImg =null;
-        URL imgURL = new URL("http://openweathermap.org/img/wn/"+currentWeather.getIconString()+".png");
-        buffImg = ImageIO.read(imgURL);
-        iconImageView.setImage(new Image(String.valueOf(imgURL)));
-    }
-
+    private String logFilename;
     private Weather currentWeather;
 
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
+    //region FXML elements
     @FXML
-    private ChoiceBox<String> countryChoiceBox = new ChoiceBox();
+    private ChoiceBox<String> countryChoiceBox = new ChoiceBox<String>();
     @FXML
-    private ChoiceBox cityChoiceBox;
+    private ChoiceBox<String> cityChoiceBox=new ChoiceBox<String>();
     @FXML
     private Label currentCityLabel;
     @FXML
@@ -92,67 +66,44 @@ public class WeatherController {
     @FXML
     private ImageView iconImageView;
 
+    @FXML
+    Label fixWindLabel;
+    @FXML
+    Label fixHumLabel;
+    @FXML
+    Label fixPresLabel;
+    @FXML
+    Label fixFeelslikeLabel;
+
+
+    @FXML
+    Label welcomeLabel;
+    @FXML
+    Label welcome2Label;
+
+    @FXML
+    Menu HelpClick;
+
+    //endregion
 
 
     public WeatherController(String file) throws FileNotFoundException {
         setFilename(file);
-        initializeCountries();
-    }
-
-    private void initializeCountries() throws FileNotFoundException {
-
-        try {
-            BufferedReader buf = new BufferedReader(new FileReader(this.getFilename()));
-            String[] wordsArray = new String[6];
-
-            String strRead;
-            strRead = buf.readLine();
-            while ((strRead = buf.readLine()) != null) {
-                wordsArray = strRead.split("[\t ]+");
-                String id = wordsArray[0];
-                String name = wordsArray[1];
-                String lat = wordsArray[2];
-                String lon = wordsArray[3];
-                String country = wordsArray[4];
-                City city = new City(name, country, Integer.parseInt(id), lat, lon);
-                // System.out.println(city.getName() + " " + city.getCountryCode());
-
-                if (!countriesMap.containsKey(city.getCountryCode())) {
-                    countriesMap.put(city.getCountryCode(), new ArrayList<City>());
-                }
-                countriesMap.get(city.getCountryCode()).add(city);
-            }
-            buf.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-           /* for (String i : countriesMap.keySet()) {
-                System.out.println(i);
-            }*/
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       // System.out.println(getFilename());
-       /* for (Map.Entry<String, ArrayList<City>>entry : countriesMap.entrySet()) {
-            System.out.println(entry.getKey()+" " );
-            for( City c : entry.getValue())
-                System.out.println(c.getName());
-            System.out.println("\n");
-        }*/
-
+        setLogFilename("src/main/resources/logfile.txt");
     }
 
     @FXML
-    private void initialize() {
-        // Initialize  view
+    private void initialize() throws Exception {
+
+        //initialize view
+        initializeCountries();
 
         countryChoiceBox.setValue("Choose country");
         cityChoiceBox.setValue("Choose city");
         countryChoiceBox.setItems(FXCollections.observableList(new ArrayList<String>(countriesMap.keySet())));
 
-        //countryChoiceBox.getSelectionModel().selectedItemProperty().addListener(newValue -> updateCities(newValue.toString()));
-
         countryChoiceBox.setOnAction(event -> {
+
             cityChoiceBox.getItems().clear();
             cityChoiceBox.setValue("Choose city");
             //The above line is important otherwise everytime there is an action it will just keep adding more
@@ -162,6 +113,7 @@ public class WeatherController {
         });
 
         cityChoiceBox.setOnAction(event -> {
+
             if(cityChoiceBox.getValue()!="Choose city" && cityChoiceBox.getValue()!=null) {
                 try {
                     updateCurrentWeather((String) cityChoiceBox.getValue());
@@ -171,37 +123,41 @@ public class WeatherController {
             }
         });
 
+        HelpClick.setOnAction(event -> {
+
+            Alert a = new Alert(Alert.AlertType.NONE);
+            Window window = a.getDialogPane().getScene().getWindow();
+            a.setTitle("About");
+            window.setOnCloseRequest(e -> a.hide());
+            a.setContentText(" \t\t\t\tBestWeatherApp \n\t\t\t\t\tVersion 1 \n\n\n\nPowered by CATSoftware \nCopyright © 2021 | ATMF'1' ");
+            a.show();
+        });
+
     }
 
-    private void updateCurrentWeather(String currentCity) throws IOException {
+    private void initializeCountries() throws Exception {
 
-        //System.out.println(currentCity);
-        String apiKey = "968ed3b71d5f8d8d811e068b7ba3da27";
-        String urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + currentCity + "&units=metric"+ "&appid=" + apiKey;
+        FileWorker fw= new FileWorker(this.getFilename());
+        ArrayList<String> lines=fw.readFromFile();
 
-        StringBuilder res = new StringBuilder();
-        URL url;
+        String[] wordsArray = new String[6];
+        for( String item: lines) {
+            wordsArray = item.split("[\t ]+");
+            String id = wordsArray[0];
+            String name = wordsArray[1];
+            String lat = wordsArray[2];
+            String lon = wordsArray[3];
+            String country = wordsArray[4];
+            City city = new City(name, country, Integer.parseInt(id), lat, lon);
 
-        {
-            try {
-                url = new URL(urlString);
-                URLConnection conn = url.openConnection();
-                BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String line;
-                while ((line = rd.readLine()) != null)
-                    res.append(line);
-                rd.close();
-                //System.out.println(res);
-                //citiesList=cities;
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (!countriesMap.containsKey(city.getCountryCode())) {
+                countriesMap.put(city.getCountryCode(), new ArrayList<City>());
             }
+            countriesMap.get(city.getCountryCode()).add(city);
         }
 
-        setCurrentWeather(new Weather(String.valueOf(res),currentCity));
-        updateInfo();
-
     }
+
     private void updateCities(String newValue) {
 
         ArrayList<String> c = new ArrayList<String>();
@@ -211,5 +167,83 @@ public class WeatherController {
         cityChoiceBox.setItems(FXCollections.observableList(c));
     }
 
+    private void updateCurrentWeather(String currentCity) throws IOException {
+
+        JsonWorker jw= new JsonWorker();
+        String json= jw.requestJson(currentCity,"968ed3b71d5f8d8d811e068b7ba3da27" );
+        setCurrentWeather(new Weather(json,currentCity));
+        updateInfo();
+    }
+
+    private void updateInfo() throws IOException {
+
+        switchLabelsVisibility();
+
+        currentCityLabel.setText(currentWeather.getCurrentCity());
+        currentTempLabel.setText(currentWeather.getTemp()+"°C");
+        minLabel.setText("L: "+currentWeather.getMinTemp()+"°C");
+        maxLabel.setText("H: "+currentWeather.getMaxTemp()+"°C");
+        weatherLabel.setText(currentWeather.getDesc());
+        feelslikeLabel.setText(currentWeather.getFeelsLike()+"°C");
+        humLabel.setText(currentWeather.getHumidity() +"%");
+        pressureLabel.setText(currentWeather.getPression()+" hPa");
+        windLabel.setText(currentWeather.getWind()+" km/hr");
+
+        BufferedImage buffImg =null;
+        URL imgURL = new URL("http://openweathermap.org/img/wn/"+currentWeather.getIconString()+".png");
+        buffImg = ImageIO.read(imgURL);
+        iconImageView.setImage(new Image(String.valueOf(imgURL)));
+
+        FileWorker fw=new FileWorker(getLogFilename());
+        fw.writeToFile(currentWeather);
+    }
+
+    private void switchLabelsVisibility() {
+
+        welcome2Label.setVisible(false);
+        welcomeLabel.setVisible(false);
+        currentCityLabel.setVisible(true);
+        currentTempLabel.setVisible(true);
+        minLabel.setVisible(true);
+        maxLabel.setVisible(true);
+        pressureLabel.setVisible(true);
+        windLabel.setVisible(true);
+        humLabel.setVisible(true);
+        weatherLabel.setVisible(true);
+        fixHumLabel.setVisible(true);
+        fixPresLabel.setVisible(true);
+        fixWindLabel.setVisible(true);
+        fixFeelslikeLabel.setVisible(true);
+        feelslikeLabel.setVisible(true);
+
+    }
+
+    //region getters and setters
+
+    public Weather getCurrentWeather() {
+        return currentWeather;
+    }
+
+    public void setCurrentWeather(Weather currentWeather) throws IOException {
+        this.currentWeather = currentWeather;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getLogFilename() {
+        return logFilename;
+    }
+
+    public void setLogFilename(String logFilename) {
+        this.logFilename = logFilename;
+    }
+
+    //endregion
 
 }

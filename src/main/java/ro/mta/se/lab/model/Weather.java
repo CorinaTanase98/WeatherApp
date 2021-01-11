@@ -9,14 +9,11 @@ import com.eclipsesource.json.JsonValue;
 import javax.lang.model.element.NestingKind;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class Weather {
-
-    public void setCurrentCity(String currentCity) {
-        this.currentCity = currentCity;
-    }
 
     private String currentCity;
     private String desc;
@@ -30,6 +27,31 @@ public class Weather {
     private String wind;
     private String iconString;
 
+    public Weather(String jsonString, String city) {
+
+        setCurrentCity(city);
+
+        JsonWorker jw=new JsonWorker();
+
+        ArrayList<String> params=jw.extractTempWeatherIcon(jsonString);
+        setDesc(params.get(1));
+        setIconString(params.get(2));
+
+        DateFormat dateFormat = new SimpleDateFormat("EEEE, h:mm a");
+        Date date = new Date(System.currentTimeMillis());
+        setCurrentDate(dateFormat.format(date));
+
+        setFeelsLike(jw.extractFeelsLike(jsonString));
+        setTemp(jw.extractTemp(jsonString));
+        setMaxTemp(jw.extractMax(jsonString));
+        setMinTemp(jw.extractMin(jsonString));
+        setPression(jw.extractPres(jsonString));
+        setHumidity(jw.extractHum(jsonString));
+        setWind(String.valueOf(Math.round((Float.parseFloat(jw.extractWind(jsonString)))*1.85)));
+
+    }
+
+    //region getters and setters
 
     public String getIconString() {
         return iconString;
@@ -38,7 +60,6 @@ public class Weather {
     public void setIconString(String iconString) {
         this.iconString = iconString;
     }
-
 
     public String getWind() {
         return wind;
@@ -58,6 +79,10 @@ public class Weather {
 
     public String getCurrentCity() {
         return currentCity;
+    }
+
+    public void setCurrentCity(String currentCity) {
+        this.currentCity = currentCity;
     }
 
     public String getCurrentDate() {
@@ -116,64 +141,6 @@ public class Weather {
         this.humidity = humidity;
     }
 
-
-    private String getRoundedValue(String value)
-    {
-        return String.valueOf(Math.round(Float.parseFloat(value)));
-    }
-
-    public Weather(String jsonString, String city) {
-
-        //JsonArray jsonArray = Json.parse(jsonString).(JSONArray) jsonString.get("contact");
-
-        setCurrentCity(city);
-        JsonArray w = Json.parse(jsonString).asObject().get("weather").asArray();
-
-        String mainWeather=null;
-        String descWeather=null;
-        String icon=null;
-        for( JsonValue obj : w )
-        {
-            mainWeather= obj.asObject().getString("main","Weather");
-            descWeather= obj.asObject().getString("description","Weather");
-            icon= obj.asObject().getString("icon","icon");
-        }
-
-        JsonValue mainTemp = Json.parse(jsonString).asObject().get("main").asObject();
-        String exactTemp= mainTemp.asObject().get("temp").toString();
-        String feelsLikeTemp= mainTemp.asObject().get("feels_like").toString();
-        String minTemp= mainTemp.asObject().get("temp_min").toString();
-        String maxTemp= mainTemp.asObject().get("temp_max").toString();
-        String pressure= mainTemp.asObject().get("pressure").toString();
-        String humidity= mainTemp.asObject().get("humidity").toString();
-
-        JsonValue windObj = Json.parse(jsonString).asObject().get("wind").asObject();
-        String windSpeed= windObj.asObject().get("speed").toString();
-        String degSpeed= windObj.asObject().get("deg").toString();
-
-        DateFormat dateFormat = new SimpleDateFormat("EEEE, h:mm a");
-        Date date = new Date(System.currentTimeMillis());
-        //System.out.println(dateFormat.format(date));
-
-        setCurrentDate(dateFormat.format(date));
-        setFeelsLike(getRoundedValue(feelsLikeTemp));
-        setTemp(getRoundedValue(exactTemp));
-        setMaxTemp(getRoundedValue(maxTemp));
-        setMinTemp(getRoundedValue(minTemp));
-        setDesc(descWeather);
-        setPression(pressure);
-        setHumidity(humidity);
-        setWind(String.valueOf(Math.round((Float.parseFloat(windSpeed))*1.85)));
-        setIconString(icon);
-
-        //System.out.println(mainWeather+ " press "+ pressure + "wind sp "+ windSpeed + "   "+ descWeather);
-       /* System.out.println(mainWeather);
-        System.out.println(descWeather);
-        System.out.println(pressure);System.out.println(humidity);
-        System.out.println(exactTemp);
-        System.out.println(feelsLikeTemp);*/
-
-
-    }
+    //endregion
 
 }
