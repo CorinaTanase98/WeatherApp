@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="579.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar prefHeight="0.0" prefWidth="386.0" style="-fx-background-color: white;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu fx:id="HelpClick" mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About  ..." />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="511.0" prefWidth="385.0" VBox.vgrow="ALWAYS">
+      <children>
+            <SplitPane dividerPositions="0.28102189781021897" orientation="VERTICAL" prefHeight="546.0" prefWidth="418.0" style="-fx-background-color: linear-gradient(to right top, #020f23, #0d3d58, #09718e, #14a9be, #46e5e5);;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="40.0" minWidth="20.0" prefHeight="137.0" prefWidth="501.0">
+                     <children>
+                        <ChoiceBox fx:id="countryChoiceBox" layoutX="117.0" layoutY="36.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="cityChoiceBox" layoutX="117.0" layoutY="97.0" prefWidth="150.0" />
+                        <Label layoutX="163.0" layoutY="11.0" text="Country" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="178.0" layoutY="72.0" text="City" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane maxHeight="1000.0" maxWidth="500.0" minHeight="0.0" minWidth="0.0" mouseTransparent="true" prefHeight="400.0" prefWidth="392.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004065, #006c8f, #009bb2, #0ccbcb);;">
+                     <children>
+                        <Label fx:id="currentTempLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="84.0" prefHeight="58.0" prefWidth="304.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="weatherLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="54.0" prefHeight="26.0" prefWidth="383.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="minLabel" layoutX="134.0" layoutY="148.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="maxLabel" layoutX="215.0" layoutY="148.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Line fx:id="line1" endX="152.0" layoutX="235.0" layoutY="189.0" startX="-238.0" stroke="WHITE" strokeWidth="4.0" visible="false" />
+                        <Label fx:id="fixHumLabel" layoutX="116.0" layoutY="204.0" text="Humidity" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fixFeelslikeLabel" layoutX="222.0" layoutY="204.0" text="Feels like" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="humLabel" layoutX="124.0" layoutY="229.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="feelslikeLabel" layoutX="229.0" layoutY="229.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Line fx:id="line2" endX="152.0" layoutX="235.0" layoutY="276.0" startX="-231.0" stroke="WHITE" strokeWidth="4.0" visible="false" />
+                        <Label fx:id="fixPresLabel" layoutX="120.0" layoutY="297.0" text="Pressure" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pressureLabel" layoutX="104.0" layoutY="322.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentCityLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="40.0" prefWidth="385.0" text="Label" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true" visible="false">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fixWindLabel" layoutX="234.0" layoutY="297.0" text="Wind" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="windLabel" layoutX="217.0" layoutY="322.0" text="Label" textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="iconImageView" fitHeight="60.0" fitWidth="64.0" layoutX="123.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="welcome2Label" layoutX="55.0" layoutY="73.0" prefHeight="80.0" prefWidth="298.0" text="Please choose a country and a city :) " textAlignment="CENTER" textFill="#f0f1f2" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="welcomeLabel" contentDisplay="CENTER" layoutX="99.0" layoutY="40.0" text="Welcome!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

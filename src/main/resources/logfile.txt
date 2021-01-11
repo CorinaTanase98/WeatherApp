@@ -1,0 +1,11 @@
+Monday, 10:59 PM || Yokohama -- broken clouds -- Temp: 3 -- Wspeed:  8 -- Pres:  1018 -- Hum:  60 -- Min:  2, Max: 4
+Monday, 10:59 PM || Oradea -- light snow -- Temp: 0 -- Wspeed:  2 -- Pres:  1020 -- Hum:  100 -- Min:  0, Max: 0
+Monday, 10:59 PM || Athens -- few clouds -- Temp: 17 -- Wspeed:  7 -- Pres:  1012 -- Hum:  82 -- Min:  16, Max: 18
+Monday, 10:59 PM || Thessaloniki -- scattered clouds -- Temp: 13 -- Wspeed:  5 -- Pres:  1013 -- Hum:  100 -- Min:  13, Max: 14
+Monday, 10:59 PM || Kavala -- overcast clouds -- Temp: 13 -- Wspeed:  1 -- Pres:  1014 -- Hum:  92 -- Min:  13, Max: 13
+Monday, 11:11 PM || Hyderabad -- mist -- Temp: 19 -- Wspeed:  5 -- Pres:  1016 -- Hum:  94 -- Min:  19, Max: 19
+Monday, 11:11 PM || Delhi -- mist -- Temp: 9 -- Wspeed:  5 -- Pres:  1017 -- Hum:  93 -- Min:  9, Max: 9
+Monday, 11:11 PM || Kano -- clear sky -- Temp: 21 -- Wspeed:  7 -- Pres:  1016 -- Hum:  37 -- Min:  21, Max: 21
+Monday, 11:11 PM || Yongin -- clear sky -- Temp: -13 -- Wspeed:  1 -- Pres:  1020 -- Hum:  85 -- Min:  -15, Max: -11
+Monday, 11:11 PM || Sejong -- light snow -- Temp: -9 -- Wspeed:  1 -- Pres:  1020 -- Hum:  86 -- Min:  -9, Max: -9
+Monday, 11:11 PM || Kano -- clear sky -- Temp: 21 -- Wspeed:  7 -- Pres:  1016 -- Hum:  37 -- Min:  21, Max: 21
