@@ -25,12 +25,6 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws FileNotFoundException {
 
-     /*   Parameters params = getParameters();
-        List<String> args = params.getRaw();
-
-        System.out.println(args.get(0));*/
-
-
         FXMLLoader loader = new FXMLLoader();
         try {
             loader.setLocation(this.getClass().getResource("/view/WeatherView2.fxml"));
