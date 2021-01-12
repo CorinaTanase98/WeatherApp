@@ -18,6 +18,11 @@ public class City {
         this.lat = new SimpleStringProperty(lat);
     }
 
+    public City(String name)
+    {
+        this.name = new SimpleStringProperty(name);
+    }
+
     //region for getters and setters
 
     public String getName() {
