@@ -58,7 +58,7 @@ public class WeatherTest {
 
         String returnedJson= mockJW.requestJson(mockCity.getName(),key);
 
-        instance=new Weather(returnedJson,mockCity);
+        instance=new Weather(returnedJson,mockCity.getName());
 
         assertEquals("Paris",instance.getCurrentCity());
         assertEquals("6",instance.getTemp());
