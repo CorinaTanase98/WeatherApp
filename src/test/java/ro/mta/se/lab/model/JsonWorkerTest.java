@@ -57,37 +57,37 @@ public class JsonWorkerTest {
 
     @Test
     public void extractWindTest() {
-        assertEquals(new String("5.66"),jw.extractWind(json));
+        assertEquals(new String("5.14"),jw.extractWind(json));
     }
 
     @Test
     public void extractPresTest() {
-        assertEquals(new String("1021"),jw.extractPres(json));
+        assertEquals(new String("1016"),jw.extractPres(json));
     }
 
     @Test
     public void extractMaxTest() {
-        assertEquals(new String("1"),jw.extractMax(json));
+        assertEquals(new String("2"),jw.extractMax(json));
     }
 
     @Test
     public void extractMinTest() {
-        assertEquals(new String("0"),jw.extractMin(json));
+        assertEquals(new String("1"),jw.extractMin(json));
     }
 
     @Test
     public void extractTempTest() {
-        assertEquals(new String("0"),jw.extractTemp(json));
+        assertEquals(new String("1"),jw.extractTemp(json));
     }
 
     @Test
     public void extractFeelslikeTest() {
-        assertEquals(new String("-5"),jw.extractFeelsLike(json));
+        assertEquals(new String("-4"),jw.extractFeelsLike(json));
     }
 
     @Test
     public void extractHumTest() {
-        assertEquals(new String("-5"),jw.extractFeelsLike(json));
+        assertEquals(new String("-4"),jw.extractFeelsLike(json));
     }
 
     @Test
@@ -98,8 +98,8 @@ public class JsonWorkerTest {
     @Test
     public void extractTempWeatherIconTest() {
         ArrayList<String> res= jw.extractTempWeatherIcon(json);
-        assertEquals(new String("Drizzle"),res.get(0));
-        assertEquals(new String("drizzle"),res.get(1));
-        assertEquals(new String("09n"),res.get(2));
+        assertEquals(new String("Rain"),res.get(0));
+        assertEquals(new String("light rain"),res.get(1));
+        assertEquals(new String("10d"),res.get(2));
     }
 }
