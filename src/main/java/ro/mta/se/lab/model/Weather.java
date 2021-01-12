@@ -27,9 +27,9 @@ public class Weather {
     private String wind;
     private String iconString;
 
-    public Weather(String jsonString, String city) {
+    public Weather(String jsonString, City city) {
 
-        setCurrentCity(city);
+        setCurrentCity(city.getName());
 
         JsonWorker jw=new JsonWorker();
 
