@@ -34,7 +34,6 @@ import java.util.Map;
 
 public class WeatherController {
 
-
     private HashMap<String, ArrayList<City>> countriesMap = new HashMap<String, ArrayList<City>>();
     private String filename;
     private String logFilename;
@@ -96,7 +95,7 @@ public class WeatherController {
     private void initialize() throws Exception {
 
         //initialize view
-        initializeCountries();
+        boolean initResult=initializeCountries();
 
         countryChoiceBox.setValue("Choose country");
         cityChoiceBox.setValue("Choose city");
@@ -116,7 +115,7 @@ public class WeatherController {
 
             if(cityChoiceBox.getValue()!="Choose city" && cityChoiceBox.getValue()!=null) {
                 try {
-                    updateCurrentWeather((String) cityChoiceBox.getValue());
+                    updateCurrentWeather(new City((String) cityChoiceBox.getValue()));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -135,7 +134,7 @@ public class WeatherController {
 
     }
 
-    private void initializeCountries() throws Exception {
+    private boolean initializeCountries() throws Exception {
 
         FileWorker fw= new FileWorker(this.getFilename());
         ArrayList<String> lines=fw.readFromFile();
@@ -156,21 +155,23 @@ public class WeatherController {
             countriesMap.get(city.getCountryCode()).add(city);
         }
 
+        return true;
+
     }
 
-    private void updateCities(String newValue) {
+    private void updateCities(String country) {
 
         ArrayList<String> c = new ArrayList<String>();
-        for (City i : countriesMap.get(newValue)) {
+        for (City i : countriesMap.get(country)) {
             c.add(i.getName());
         }
         cityChoiceBox.setItems(FXCollections.observableList(c));
     }
 
-    private void updateCurrentWeather(String currentCity) throws IOException {
+    public void updateCurrentWeather(City currentCity) throws IOException {
 
         JsonWorker jw= new JsonWorker();
-        String json= jw.requestJson(currentCity,"968ed3b71d5f8d8d811e068b7ba3da27" );
+        String json= jw.requestJson(currentCity.getName(),"968ed3b71d5f8d8d811e068b7ba3da27" );
         setCurrentWeather(new Weather(json,currentCity));
         updateInfo();
     }
