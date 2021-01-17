@@ -3,12 +3,12 @@
 BestWeatherApp provides current weather data for any city in the world.
 
 ## Getting started 
-###Prerequisites
+### Prerequisites
 At least:
 * JDK 11
 * Maven 3
 
-###Usage
+### Usage
  Create Maven Run/Debug configuration: WeatherApp [clean,compile,javafx:run]
  
 ```
@@ -25,6 +25,6 @@ $ mvn clean compile javafx:run
 > BestWeatherApp uses a light-speed API from [OpenWeather] (https://openweathermap.org/).
 > \nCheck them out for some weather forecast easy-to-use APIs.
 
-##License
+## License
 
 CATSoftware | ATMF1
