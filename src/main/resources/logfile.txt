@@ -9,3 +9,67 @@ Monday, 11:11 PM || Kano -- clear sky -- Temp: 21 -- Wspeed:  7 -- Pres:  1016 -
 Monday, 11:11 PM || Yongin -- clear sky -- Temp: -13 -- Wspeed:  1 -- Pres:  1020 -- Hum:  85 -- Min:  -15, Max: -11
 Monday, 11:11 PM || Sejong -- light snow -- Temp: -9 -- Wspeed:  1 -- Pres:  1020 -- Hum:  86 -- Min:  -9, Max: -9
 Monday, 11:11 PM || Kano -- clear sky -- Temp: 21 -- Wspeed:  7 -- Pres:  1016 -- Hum:  37 -- Min:  21, Max: 21
+Tuesday, 12:41 AM || Delhi -- mist -- Temp: 8 -- Wspeed:  5 -- Pres:  1016 -- Hum:  93 -- Min:  8, Max: 8
+Tuesday, 12:41 AM || Hyderabad -- mist -- Temp: 19 -- Wspeed:  5 -- Pres:  1015 -- Hum:  94 -- Min:  18, Max: 19
+Tuesday, 12:42 AM || Athens -- broken clouds -- Temp: 17 -- Wspeed:  14 -- Pres:  1010 -- Hum:  71 -- Min:  16, Max: 18
+Tuesday, 12:42 AM || Hyderabad -- mist -- Temp: 19 -- Wspeed:  5 -- Pres:  1015 -- Hum:  94 -- Min:  18, Max: 19
+Tuesday, 12:44 AM || Yokohama -- broken clouds -- Temp: 3 -- Wspeed:  6 -- Pres:  1017 -- Hum:  65 -- Min:  2, Max: 3
+Tuesday, 12:44 AM || Tokyo -- scattered clouds -- Temp: 2 -- Wspeed:  5 -- Pres:  1018 -- Hum:  69 -- Min:  1, Max: 3
+Tuesday, 12:44 AM || Lyon -- clear sky -- Temp: -4 -- Wspeed:  2 -- Pres:  1025 -- Hum:  86 -- Min:  -5, Max: -4
+Tuesday, 1:21 AM || Yokohama -- broken clouds -- Temp: 4 -- Wspeed:  8 -- Pres:  1017 -- Hum:  60 -- Min:  3, Max: 4
+Tuesday, 11:30 AM || Dragasani -- light snow -- Temp: 1 -- Wspeed:  5 -- Pres:  1015 -- Hum:  100 -- Min:  1, Max: 2
+Tuesday, 11:32 AM || Dragasani -- light snow -- Temp: 1 -- Wspeed:  5 -- Pres:  1015 -- Hum:  100 -- Min:  1, Max: 2
+Tuesday, 11:37 AM || Oradea -- light snow -- Temp: 0 -- Wspeed:  3 -- Pres:  1017 -- Hum:  100 -- Min:  0, Max: 0
+Tuesday, 11:37 AM || Bucharest -- mist -- Temp: 1 -- Wspeed:  10 -- Pres:  1016 -- Hum:  93 -- Min:  1, Max: 2
+Tuesday, 11:44 AM || Bucharest -- mist -- Temp: 1 -- Wspeed:  10 -- Pres:  1016 -- Hum:  93 -- Min:  1, Max: 2
+Tuesday, 11:44 AM || Cluj-Napoca -- light snow -- Temp: 0 -- Wspeed:  2 -- Pres:  1015 -- Hum:  100 -- Min:  0, Max: 0
+Tuesday, 11:44 AM || Oradea -- light snow -- Temp: 0 -- Wspeed:  3 -- Pres:  1017 -- Hum:  100 -- Min:  0, Max: 0
+Tuesday, 11:44 AM || Bucharest -- mist -- Temp: 1 -- Wspeed:  10 -- Pres:  1016 -- Hum:  93 -- Min:  1, Max: 2
+Tuesday, 11:44 AM || Athens -- overcast clouds -- Temp: 18 -- Wspeed:  4 -- Pres:  1008 -- Hum:  81 -- Min:  17, Max: 19
+Tuesday, 11:44 AM || Thessaloniki -- scattered clouds -- Temp: 10 -- Wspeed:  13 -- Pres:  1008 -- Hum:  93 -- Min:  9, Max: 12
+Tuesday, 11:44 AM || Kavala -- overcast clouds -- Temp: 11 -- Wspeed:  8 -- Pres:  1007 -- Hum:  100 -- Min:  11, Max: 13
+Tuesday, 11:44 AM || Tokyo -- light rain -- Temp: 4 -- Wspeed:  8 -- Pres:  1011 -- Hum:  87 -- Min:  4, Max: 4
+Tuesday, 11:44 AM || Osaka -- scattered clouds -- Temp: 4 -- Wspeed:  3 -- Pres:  1015 -- Hum:  93 -- Min:  4, Max: 5
+Tuesday, 11:44 AM || Yokohama -- broken clouds -- Temp: 4 -- Wspeed:  10 -- Pres:  1011 -- Hum:  87 -- Min:  3, Max: 4
+Tuesday, 11:44 AM || Paris -- moderate rain -- Temp: 7 -- Wspeed:  12 -- Pres:  1015 -- Hum:  93 -- Min:  6, Max: 8
+Tuesday, 11:44 AM || Lyon -- mist -- Temp: 0 -- Wspeed:  2 -- Pres:  1025 -- Hum:  86 -- Min:  -1, Max: 1
+Tuesday, 11:45 AM || Lima -- broken clouds -- Temp: 20 -- Wspeed:  8 -- Pres:  1011 -- Hum:  88 -- Min:  20, Max: 20
+Tuesday, 11:45 AM || Arequipa -- overcast clouds -- Temp: 15 -- Wspeed:  0 -- Pres:  1017 -- Hum:  71 -- Min:  15, Max: 15
+Tuesday, 11:45 AM || Sydney -- clear sky -- Temp: 24 -- Wspeed:  15 -- Pres:  1013 -- Hum:  65 -- Min:  23, Max: 25
+Tuesday, 11:45 AM || Brisbane -- few clouds -- Temp: 24 -- Wspeed:  6 -- Pres:  1015 -- Hum:  69 -- Min:  23, Max: 24
+Sunday, 9:27 AM || Yongin -- broken clouds -- Temp: -1 -- Wspeed:  3 -- Pres:  1025 -- Hum:  37 -- Min:  -2, Max: -1
+Sunday, 9:27 AM || Bucharest -- light snow -- Temp: -6 -- Wspeed:  4 -- Pres:  1017 -- Hum:  86 -- Min:  -7, Max: -5
+Sunday, 9:27 AM || Lagos -- haze -- Temp: 25 -- Wspeed:  2 -- Pres:  1011 -- Hum:  94 -- Min:  25, Max: 25
+Sunday, 9:27 AM || Lima -- clear sky -- Temp: 20 -- Wspeed:  10 -- Pres:  1012 -- Hum:  88 -- Min:  20, Max: 20
+Sunday, 10:06 AM || Cluj-Napoca -- few clouds -- Temp: -10 -- Wspeed:  3 -- Pres:  1015 -- Hum:  92 -- Min:  -10, Max: -10
+Sunday, 10:06 AM || Yongin -- scattered clouds -- Temp: -1 -- Wspeed:  4 -- Pres:  1025 -- Hum:  43 -- Min:  -2, Max: -1
+Sunday, 10:06 AM || Lima -- clear sky -- Temp: 20 -- Wspeed:  10 -- Pres:  1012 -- Hum:  88 -- Min:  19, Max: 20
+Sunday, 10:06 AM || Brisbane -- clear sky -- Temp: 27 -- Wspeed:  8 -- Pres:  1012 -- Hum:  69 -- Min:  26, Max: 27
+Sunday, 10:24 AM || Delhi -- mist -- Temp: 14 -- Wspeed:  7 -- Pres:  1016 -- Hum:  77 -- Min:  14, Max: 14
+Sunday, 10:24 AM || Hyderabad -- haze -- Temp: 28 -- Wspeed:  7 -- Pres:  1015 -- Hum:  42 -- Min:  28, Max: 29
+Sunday, 10:24 AM || Lagos -- scattered clouds -- Temp: 27 -- Wspeed:  2 -- Pres:  1012 -- Hum:  94 -- Min:  27, Max: 27
+Sunday, 10:24 AM || Lyon -- mist -- Temp: 1 -- Wspeed:  2 -- Pres:  1022 -- Hum:  93 -- Min:  1, Max: 1
+Sunday, 10:24 AM || Sejong -- clear sky -- Temp: -2 -- Wspeed:  4 -- Pres:  1025 -- Hum:  43 -- Min:  -2, Max: -2
+Sunday, 10:25 AM || Yongin -- broken clouds -- Temp: -2 -- Wspeed:  2 -- Pres:  1024 -- Hum:  50 -- Min:  -2, Max: -1
+Sunday, 10:25 AM || Delhi -- mist -- Temp: 14 -- Wspeed:  7 -- Pres:  1016 -- Hum:  77 -- Min:  14, Max: 14
+Sunday, 10:25 AM || Thessaloniki -- clear sky -- Temp: -1 -- Wspeed:  14 -- Pres:  1017 -- Hum:  55 -- Min:  -1, Max: 0
+Sunday, 10:25 AM || Oradea -- broken clouds -- Temp: -5 -- Wspeed:  9 -- Pres:  1016 -- Hum:  86 -- Min:  -5, Max: -5
+Sunday, 10:26 AM || Hyderabad -- haze -- Temp: 28 -- Wspeed:  7 -- Pres:  1015 -- Hum:  42 -- Min:  28, Max: 29
+Sunday, 10:26 AM || Kano -- broken clouds -- Temp: 17 -- Wspeed:  5 -- Pres:  1016 -- Hum:  36 -- Min:  17, Max: 17
+Sunday, 10:26 AM || Paris -- broken clouds -- Temp: 4 -- Wspeed:  8 -- Pres:  1021 -- Hum:  93 -- Min:  3, Max: 6
+Sunday, 10:26 AM || Yokohama -- broken clouds -- Temp: 7 -- Wspeed:  9 -- Pres:  1013 -- Hum:  61 -- Min:  7, Max: 8
+Sunday, 10:27 AM || Kano -- broken clouds -- Temp: 17 -- Wspeed:  5 -- Pres:  1016 -- Hum:  36 -- Min:  17, Max: 17
+Sunday, 10:27 AM || Hyderabad -- haze -- Temp: 28 -- Wspeed:  7 -- Pres:  1015 -- Hum:  39 -- Min:  28, Max: 29
+Sunday, 10:28 AM || Yongin -- broken clouds -- Temp: -2 -- Wspeed:  2 -- Pres:  1024 -- Hum:  50 -- Min:  -2, Max: -1
+Sunday, 10:29 AM || Hyderabad -- haze -- Temp: 28 -- Wspeed:  7 -- Pres:  1015 -- Hum:  39 -- Min:  28, Max: 29
+Sunday, 10:29 AM || Kano -- broken clouds -- Temp: 17 -- Wspeed:  5 -- Pres:  1016 -- Hum:  36 -- Min:  17, Max: 17
+Sunday, 11:17 AM || Yokohama -- broken clouds -- Temp: 7 -- Wspeed:  10 -- Pres:  1013 -- Hum:  61 -- Min:  6, Max: 7
+Sunday, 12:00 PM || Ibadan -- scattered clouds -- Temp: 34 -- Wspeed:  1 -- Pres:  1011 -- Hum:  38 -- Min:  34, Max: 34
+Sunday, 12:00 PM || Delhi -- smoke -- Temp: 14 -- Wspeed:  8 -- Pres:  1015 -- Hum:  72 -- Min:  14, Max: 14
+Sunday, 12:45 PM || Hyderabad -- haze -- Temp: 28 -- Wspeed:  8 -- Pres:  1014 -- Hum:  42 -- Min:  28, Max: 28
+Sunday, 12:45 PM || Kano -- scattered clouds -- Temp: 27 -- Wspeed:  10 -- Pres:  1017 -- Hum:  18 -- Min:  27, Max: 27
+Sunday, 12:45 PM || Bucharest -- few clouds -- Temp: -4 -- Wspeed:  4 -- Pres:  1017 -- Hum:  68 -- Min:  -4, Max: -4
+Sunday, 12:45 PM || Cluj-Napoca -- few clouds -- Temp: -8 -- Wspeed:  3 -- Pres:  1015 -- Hum:  86 -- Min:  -8, Max: -8
+Sunday, 12:45 PM || Oradea -- light snow -- Temp: -3 -- Wspeed:  6 -- Pres:  1016 -- Hum:  80 -- Min:  -3, Max: -3
+Sunday, 12:45 PM || Bucharest -- few clouds -- Temp: -4 -- Wspeed:  4 -- Pres:  1017 -- Hum:  68 -- Min:  -4, Max: -4
+Sunday, 12:45 PM || Oradea -- light snow -- Temp: -3 -- Wspeed:  6 -- Pres:  1016 -- Hum:  80 -- Min:  -3, Max: -3
