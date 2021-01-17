@@ -1,6 +1,13 @@
+/*
+ * Main
+ *
+ * Version 1.0
+ *
+ * All rights reserved.
+ */
+
 package ro.mta.se.lab;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -8,21 +15,25 @@ import javafx.stage.Stage;
 import ro.mta.se.lab.controller.WeatherController;
 
 import java.io.*;
-import java.util.*;
 
 import javafx.application.Application;
 
 import java.io.IOException;
 
+/**
+ * Class for application's start point
+ * @author Corina Tanase
+ */
 
 public class Main extends Application {
-
-    private List<String> citiesList = FXCollections.observableArrayList();
 
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Initializing method for setting location, controller and scene of the application
+     */
     public void start(Stage primaryStage) throws FileNotFoundException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -37,6 +48,8 @@ public class Main extends Application {
 
         } catch (IOException e) {
             e.printStackTrace();
+
+            //System.out.println("Exception: "+ e.getMessage() );
         }
     }
 

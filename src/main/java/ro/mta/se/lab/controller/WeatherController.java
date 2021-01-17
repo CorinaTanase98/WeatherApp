@@ -1,12 +1,15 @@
+/*
+ * WeatherController
+ *
+ * Version 1.0
+ *
+ * All rights reserved.
+ */
+
 package ro.mta.se.lab.controller;
 
-import com.eclipsesource.json.Json;
-import com.eclipsesource.json.JsonArray;
-import com.eclipsesource.json.JsonValue;
-import javafx.beans.Observable;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
@@ -14,8 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.stage.Window;
+
 import ro.mta.se.lab.model.City;
 import ro.mta.se.lab.model.FileWorker;
 import ro.mta.se.lab.model.JsonWorker;
@@ -24,19 +27,29 @@ import ro.mta.se.lab.model.Weather;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
+
 import java.net.URL;
-import java.net.URLConnection;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+
+
+/**
+ * Controller class for initializing and updating the view based on user's actions.
+ *
+ * @author Corina Tanase
+ */
 
 public class WeatherController {
 
+    /** pairs of county and cities list */
     private HashMap<String, ArrayList<City>> countriesMap = new HashMap<String, ArrayList<City>>();
+    /** input filename */
     private String filename;
+    /** logging filename */
     private String logFilename;
+    /** member for current weather information */
     private Weather currentWeather;
 
     //region FXML elements
@@ -85,17 +98,28 @@ public class WeatherController {
 
     //endregion
 
-
+    /**
+     *    WeatherController constructor
+     * Sets input and log file names.
+     * @param file input cities file
+     * @throws FileNotFoundException for unreachable files
+     *
+     */
     public WeatherController(String file) throws FileNotFoundException {
         setFilename(file);
         setLogFilename("src/main/resources/logfile.txt");
     }
 
+    /**
+     * FML initialize view starting point function. Sets default values for countryChoiceBox and countryChoiceBox
+     * and defines action handlers for selecting a country and a city and help toolbar button.
+     *
+     */
     @FXML
     private void initialize() throws Exception {
 
         //initialize view
-        boolean initResult=initializeCountries();
+        initializeCountries();
 
         countryChoiceBox.setValue("Choose country");
         cityChoiceBox.setValue("Choose city");
@@ -115,7 +139,7 @@ public class WeatherController {
 
             if(cityChoiceBox.getValue()!="Choose city" && cityChoiceBox.getValue()!=null) {
                 try {
-                    updateCurrentWeather(new City((String) cityChoiceBox.getValue()));
+                    updateCurrentWeather(cityChoiceBox.getValue());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -134,7 +158,12 @@ public class WeatherController {
 
     }
 
-    private boolean initializeCountries() throws Exception {
+    /**
+     * Function for initializing countries choice box from input file countries list.
+     * @throws FileNotFoundException for unavailable/unreachable input file
+     *
+     */
+    private void initializeCountries() throws Exception {
 
         FileWorker fw= new FileWorker(this.getFilename());
         ArrayList<String> lines=fw.readFromFile();
@@ -155,27 +184,41 @@ public class WeatherController {
             countriesMap.get(city.getCountryCode()).add(city);
         }
 
-        return true;
-
     }
 
-    private void updateCities(String country) {
+    /**
+     * Populates cityChoiceBox with cities from the current selected country
+     * @param newValue current selected country
+     *
+     */
+    private void updateCities(String newValue) {
 
         ArrayList<String> c = new ArrayList<String>();
-        for (City i : countriesMap.get(country)) {
+        for (City i : countriesMap.get(newValue)) {
             c.add(i.getName());
         }
         cityChoiceBox.setItems(FXCollections.observableList(c));
     }
 
-    public void updateCurrentWeather(City currentCity) throws IOException {
+    /**
+     * Function to initialize currentWeather member based on current selected city and API key
+     * @param currentCity current selected city
+     * @throws java.net.MalformedURLException for inadequate currentCity value
+     *
+     */
+    private void updateCurrentWeather(String currentCity) throws IOException {
 
         JsonWorker jw= new JsonWorker();
-        String json= jw.requestJson(currentCity.getName(),"968ed3b71d5f8d8d811e068b7ba3da27" );
+        String json= jw.requestJson(currentCity,"968ed3b71d5f8d8d811e068b7ba3da27" );
         setCurrentWeather(new Weather(json,currentCity));
         updateInfo();
     }
 
+    /**
+     * Function to initialize view labels using currentWeather member
+     * @throws java.net.MalformedURLException for inadequate currentWeather icon string
+     *
+     */
     private void updateInfo() throws IOException {
 
         switchLabelsVisibility();
@@ -199,6 +242,11 @@ public class WeatherController {
         fw.writeToFile(currentWeather);
     }
 
+
+    /**
+     * Function for showing weather info labels and hiding start message
+     *
+     */
     private void switchLabelsVisibility() {
 
         welcome2Label.setVisible(false);

@@ -1,20 +1,26 @@
+/*
+ * Weather
+ *
+ * Version 1.0
+ *
+ * All rights reserved.
+ */
+
 package ro.mta.se.lab.model;
 
-
-import com.eclipsesource.json.Json;
-import com.eclipsesource.json.JsonArray;
-import com.eclipsesource.json.JsonValue;
-
-
-import javax.lang.model.element.NestingKind;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * Model class for managing weather information
+ * @author Corina Tanase
+ */
 public class Weather {
 
+    /** members for actual weather parameters */
     private String currentCity;
     private String desc;
     private String pression;
@@ -27,9 +33,16 @@ public class Weather {
     private String wind;
     private String iconString;
 
-    public Weather(String jsonString, City city) {
 
-        setCurrentCity(city.getName());
+    /**
+     *    Weather constructor
+     * Sets class members based on JSON value and city name
+     * @param jsonString JSON value for current weather
+     * @param city current city
+     */
+    public Weather(String jsonString, String city) {
+
+        setCurrentCity(city);
 
         JsonWorker jw=new JsonWorker();
 
