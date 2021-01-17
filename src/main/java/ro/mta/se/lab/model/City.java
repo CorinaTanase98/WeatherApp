@@ -41,6 +41,7 @@ public class City {
     }
 
 
+    //region setters and getters
     public String getName() {
         return name.get();
     }
